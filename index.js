@@ -34,17 +34,19 @@ prevImgBtn.addEventListener("click", () => {
 
 // sounds
 const soundsArr = [
-  "./assets/sounds/Aqua Caelestis.mp3",
-  "./assets/sounds/Ennio Morricone.mp3",
-  "./assets/sounds/River Flows in You.mp3",
-  "./assets/sounds/Summer Wind.mp3",
+  { url: "./assets/sounds/Aqua Caelestis.mp3", name: "Aqua Caelestis" },
+  { url: "./assets/sounds/Ennio Morricone.mp3", name: "Ennio Morricone" },
+  { url: "./assets/sounds/River Flows in You.mp3", name: "River Flows in You" },
+  { url: "./assets/sounds/Summer Wind.mp3", name: "Summer Wind" },
 ];
+
+let musicIdx = 0;
 
 const prevSoundsBtn = document.querySelector(".play-prev");
 const nextSoundsBtn = document.querySelector(".play-next");
 const playSoundsBtn = document.querySelector(".play");
 
-const audio = new Audio(`${soundsArr[0]}`);
+let audio = new Audio(`${soundsArr[musicIdx].url}`);
 
 playSoundsBtn.addEventListener("click", () => {
   if (audio.paused) {
@@ -54,3 +56,78 @@ playSoundsBtn.addEventListener("click", () => {
   }
   playSoundsBtn.classList.toggle("pause");
 });
+
+// time
+const hoursDisplay = document.querySelector("#hours");
+const minutesDisplay = document.querySelector("#minutes");
+const secondsDisplay = document.querySelector("#seconds");
+
+const weekdayDisplay = document.querySelector("#weekday");
+const monthDisplay = document.querySelector("#month");
+const dayDisplay = document.querySelector("#day");
+
+const greetingDisplay = document.querySelector(".greeting");
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+const weekdays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+function showTime() {
+  let todayDate = new Date();
+  let weekday = weekdays[todayDate.getDay()];
+  weekdayDisplay.innerHTML = weekday;
+
+  let month = todayDate.getMonth();
+  month = months[month];
+  monthDisplay.innerHTML = month;
+
+  let day = todayDate.getDate();
+  dayDisplay.innerHTML = day;
+
+  let hours = todayDate.getHours();
+  let minutes = todayDate.getMinutes();
+  let seconds = todayDate.getSeconds();
+
+  hoursDisplay.innerHTML = String(hours).padStart(2, "0");
+  minutesDisplay.innerHTML = String(minutes).padStart(2, "0");
+  secondsDisplay.innerHTML = String(seconds).padStart(2, "0");
+
+  //greeting
+  if (hours >= 0 && hours < 6) {
+    greetingDisplay.innerText = "Good nigth,";
+  }
+  if (hours >= 6 && hours < 12) {
+    greetingDisplay.innerText = "Good morning,";
+  }
+  if (hours >= 12 && hours < 18) {
+    greetingDisplay.innerText = "Good afternoon,";
+  }
+  if (hours >= 18) {
+    greetingDisplay.innerText = "Good evening,";
+  }
+}
+let countdown = setInterval(showTime, 1000);
+
+function changeGreeting() {}
+
+showTime();

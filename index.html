@@ -36,11 +36,22 @@
         <button class="slide-prev slider-icon"></button>
         <button class="slide-next slider-icon"></button>
       </div>
-      <time class="time"></time>
-      <date class="date"></date>
+      <time class="time">
+        <h4>
+          <span id="hours"></span>:<span id="minutes"></span>:<span
+            id="seconds"
+          ></span>
+        </h4>
+      </time>
+      <date class="date">
+        <p class="date-style">
+          <span id="weekday"></span>, <span id="month"></span>
+          <span id="day"></span>
+        </p>
+      </date>
       <div class="greeting-container">
         <span class="greeting"></span>
-        <input type="text" class="name" />
+        <input type="text" class="name" placeholder="[Enter name]" />
       </div>
     </main>
     <footer class="footer">
