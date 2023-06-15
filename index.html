@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="assets/favicon.ico" rel="shortcut icon" />
-    <link rel="stylesheet" href="./owfont-regular.css" />
+    <link rel="stylesheet" href="owfont-regular.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Clock App</title>
   </head>
@@ -17,18 +17,29 @@
           <button class="play player-icon"></button>
           <button class="play-next player-icon"></button>
         </div>
-        <ul class="play-list"></ul>
+        <audio src="./assets/sounds/River Flows In You.mp3" id="audio"></audio>
+        <div class="play-list">
+          <div class="progress-container">
+            <div class="progress"></div>
+          </div>
+          <div class="title-box">
+            <p class="song-title">River Flows in You</p>
+            <img src="./assets/svg/music-player-song.svg" alt="music-logo" />
+          </div>
+        </div>
       </div>
       <div class="weather">
-        <input type="text" class="city" />
-        <i class="weather-icon owf"></i>
-        <div class="weather-error"></div>
-        <div class="description-container">
-          <span class="temperature"></span>
-          <span class="weather-description"></span>
+        <input type="text" class="city" value="Minsk" />
+        <div class="weather-box">
+          <i class="weather-icon owf"></i>
+          <div class="weather-error"></div>
+          <div class="description-container">
+            <span class="temperature"></span>
+            <span class="weather-description"></span>
+          </div>
+          <div class="wind"></div>
+          <div class="humidity"></div>
         </div>
-        <div class="wind"></div>
-        <div class="humidity"></div>
       </div>
     </header>
     <main class="main">

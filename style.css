@@ -39,10 +39,6 @@ body {
   margin-bottom: 28px;
 }
 
-.play-list {
-  text-align: left;
-}
-
 .play-item {
   position: relative;
   padding: 5px;
@@ -118,31 +114,57 @@ body {
   background-image: url("./assets/svg/play-next.svg");
 }
 
+.play-list {
+  text-align: left;
+  visibility: hidden;
+}
+
+.play-list.show-song {
+  visibility: visible;
+}
+
+.progress-container {
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #6b2de8;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.title-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.title-box p {
+  font-size: 12px;
+}
+
+.title-box img {
+  width: 15px;
+  height: 15px;
+  background-size: cover;
+  margin: 0 4px;
+}
+
 .weather {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
   row-gap: 5px;
   width: 180px;
   min-height: 180px;
   text-align: left;
-}
-
-.weather-error {
-  margin-top: -10px;
-}
-
-.description-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  column-gap: 12px;
-}
-
-.weather-icon {
-  font-size: 44px;
 }
 
 .city {
@@ -161,7 +183,38 @@ body {
 .city::placeholder {
   font-size: 20px;
   color: #fff;
-  opacity: 0.6;
+  opacity: 1;
+}
+
+.city::placeholder:focus {
+  font-size: 20px;
+  color: #fff;
+  opacity: 0;
+}
+
+.weather-box {
+  opacity: 100%;
+  font-size: 14px;
+}
+
+.err {
+  opacity: 0;
+}
+
+.description-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.weather-icon {
+  font-size: 44px;
+}
+
+.wind {
+  margin: 10px 0 10px 0;
 }
 
 .main {
