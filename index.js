@@ -18,7 +18,6 @@ nextImgBtn.addEventListener("click", () => {
   } else {
     count++;
   }
-  console.log(count, imgArr[count]);
   document.body.style.background = `url("${imgArr[count]}") center/cover, rgba(0, 0, 0, 0.5)`;
 });
 
@@ -28,7 +27,6 @@ prevImgBtn.addEventListener("click", () => {
   } else {
     count--;
   }
-  console.log(count, imgArr[count]);
   document.body.style.background = `url("${imgArr[count]}") center/cover, rgba(0, 0, 0, 0.5)`;
 });
 
@@ -220,7 +218,6 @@ async function loadWeather() {
   const urlMinsk = `https://api.openweathermap.org/data/2.5/weather?q=${value}&lang=en&appid=797ef741d117c2472e6a5597e0adaffc&units=metric`;
   const resMinsk = await fetch(urlMinsk);
   const dataMinsk = await resMinsk.json();
-  // console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
 
   weatherIcon.classList.add(`owf-${dataMinsk.weather[0].id}`);
   temp.textContent = `${dataMinsk.main.temp}°C`;
@@ -237,7 +234,6 @@ async function showWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&lang=en&appid=797ef741d117c2472e6a5597e0adaffc&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
-    console.dir(data);
 
     weatherIcon.classList = "weather-icon owf";
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
@@ -252,3 +248,71 @@ async function showWeather() {
 }
 
 inputCity.addEventListener("keyup", showWeather);
+
+// quotes
+const arrQuotes = [
+  {
+    text: "Learning is a treasure that will follow its owner everywhere.",
+    author: "Chinese Proverb",
+  },
+  {
+    text: "Knowledge is power.",
+    author: "Sir Francis Bacon",
+  },
+  {
+    text: "Start writing, no matter what. The water does not flow until the faucet is turned on.",
+    author: "Louis L'Amour",
+  },
+  {
+    text: "Read a thousand books, and your words will flow like a river.",
+    author: "Lisa See",
+  },
+  {
+    text: "Get it down. Take chances. It may be bad, but it's the only way you can do anything really good.",
+    author: "William Faulkner",
+  },
+  {
+    text: "Start before you're ready.",
+    author: "Steven Pressfield",
+  },
+  {
+    text: "It is perfectly okay to write garbage as long as you edit brilliantly.",
+    author: "C. J. Cherryh",
+  },
+  {
+    text: "Half my life is an act of revision.",
+    author: "John Irving",
+  },
+  {
+    text: "I love deadlines. I like the whooshing sound they make as they fly by.",
+    author: "Douglas Adams",
+  },
+  {
+    text: "If my doctor told me I had only six minutes to live, I wouldn't brood. I'd type a little faster.",
+    author: "Isaac Asimov",
+  },
+  {
+    text: "If I waited for perfection, I would never write a word.",
+    author: "Margaret Atwood",
+  },
+  {
+    text: "Difficulties mastered are opportunities won.",
+    author: "Winston Churchill",
+  },
+  {
+    text: "You can make anything by writing.",
+    author: "C.S. Lewis",
+  },
+];
+
+const quoteBtn = document.querySelector(".change-quote");
+const quote = document.querySelector(".quote");
+const author = document.querySelector(".author");
+
+function changeQuote() {
+  const randomNumber = Math.floor(Math.random() * arrQuotes.length);
+  quote.textContent = `"${arrQuotes[randomNumber]["text"]}"`;
+  author.textContent = `"${arrQuotes[randomNumber]["author"]}"`;
+}
+
+quoteBtn.addEventListener("click", changeQuote);
