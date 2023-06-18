@@ -265,6 +265,7 @@ body {
   flex-wrap: wrap;
   justify-content: stretch;
   align-items: center;
+  text-align: center;
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
@@ -278,7 +279,7 @@ body {
 
 .name {
   flex: 1;
-  max-width: 50%;
+  max-width: 47%;
   padding: 10px;
   font-size: 40px;
   text-align: left;
@@ -318,14 +319,26 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    min-width: auto;
+  }
+
+  .main {
+    padding: 0 15px 0 15px;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
   .time {
     min-height: 80px;
-    font-size: 72px;
+    font-size: 55px;
   }
 
   .greeting-container {
     min-height: 40px;
-    font-size: 32px;
+    font-size: 23px;
   }
 
   .greeting {
@@ -333,7 +346,18 @@ body {
   }
 
   .name {
-    font-size: 32px;
+    font-size: 23px;
     padding: 5px;
+    max-width: 40%;
+  }
+
+  .footer {
+    font-size: 15px;
+    height: auto;
+    padding: 10px;
+  }
+
+  .author {
+    margin-top: 14px;
   }
 }
