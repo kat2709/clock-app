@@ -53,7 +53,8 @@ loadMusic(songs[songIndex]);
 
 function loadMusic(song) {
   songTitle.innerHTML = song;
-  audio.src = `./assets/sounds/${song}.mp3`;
+  const name = song.toLocaleLowerCase().replaceAll(' ', '_')
+  audio.src = `./assets/sounds/${name}.mp3`;
 }
 
 function playSong() {
